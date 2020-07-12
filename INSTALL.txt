@@ -1,0 +1,36 @@
+Module Name      :	TS-MyStartup
+Version Number   :	0.4
+Module developer :	Benoit Duchaine (www.TyphonSolutions.ca), modified by Mazarin
+
+Install Instructions
+1. Upload the startup directory to XOOPS_ROOT_URL/modules/
+
+2. Log in to your site as administrator.
+
+3. Install the module using the XOOPS module administration panel at 'System Admin -> Modules'.
+
+4. In the Module administration page, hide the TS-MyStartup module (column Order, value = 0)
+
+5. Go in the TS-MyStartup administration page and setup the startup pages for your groups.
+
+6. Open the XOOPS_URL/include/checklogin.php and insert the following line at line #111 in XOOPS 2.4.x:
+	$url = XOOPS_URL.'/index.php'; // TS-MYSTARTUP HACK
+	
+	=============================
+	Lines of code should look like this:
+	START
+	=============================
+    // RMV-NOTIFY
+    // Perform some maintenance of notification records
+    $notification_handler =& xoops_gethandler('notification');
+    $notification_handler->doLoginMaintenance($user->getVar('uid'));
+
+    $url = XOOPS_URL.'/index.php'; // TS-MYSTARTUP HACK
+    redirect_header($url, 1, sprintf(_US_LOGGINGU, $user->getVar('uname')));
+	=============================
+	END
+	=============================
+
+7. Set TS-MyStartup to be the default module in the Xoops System->General Settings
+
+8. You're all done!

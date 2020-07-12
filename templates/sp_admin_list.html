@@ -1,0 +1,17 @@
+<table>
+	<tr>
+		<th><{$smarty.const._STARTUP_FORM_GROUP_NAME}></th>
+		<th><{$smarty.const._STARTUP_FORM_MODULE_NAME}></th>
+		<th><{$smarty.const._STARTUP_FORM_ORDER}></th>
+		<th><{$smarty.const._STARTUP_FORM_ACTION}></th>
+	</tr>
+	
+	<{foreach item=curpage from=$pageList}>
+	<tr>
+		<td><{$curpage.groupname}></td>
+		<td><{$curpage.modulename}></td>
+		<td><{$curpage.start_order}></td>
+		<td><{$curpage.action}></td>
+	</tr>
+	<{/foreach}>
+</table>
